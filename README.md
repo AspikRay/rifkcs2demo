@@ -33,10 +33,7 @@
 1. Клонируй репозиторий:
 
 ```bash
-git clone https://github.com/your-username/cs2-rifk-demo.git
-cd cs2-rifk-demo
-python -m venv venv
-source venv/bin/activate   # для Linux/macOS
-venv\Scripts\activate      # для Windows
+git clone https://github.com/AspikRay/rifkcs2demo
+cd rifkcs2demo
 pip install -r requirements.txt
 python app.py
