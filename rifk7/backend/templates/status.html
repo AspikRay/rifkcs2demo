@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Статус | CS2 RIFK Demo{% endblock %}
+{% block content %}
+<section class="section" style="max-width:600px;text-align:center;">
+    <h2 style="font-size:2.2em;margin-bottom:32px;">Статус безопасности</h2>
+    <div class="status-badges" style="justify-content:center;margin-bottom:36px;gap:28px;">
+        <span class="badge undetected" style="font-size:1.15em;">Undetected</span>
+        <span class="badge vac" style="font-size:1.15em;">VAC Proof</span>
+        <span class="badge update" style="font-size:1.15em;">Обновлено: 2025-06-01</span>
+    </div>
+    <div style="font-size:1.15em;color:#b3b3c6;margin-bottom:32px;">
+        Система защиты имитирует работу анти-VAC и других современных методов обхода обнаружения.<br>
+        Все статусы отображаются исключительно в демонстрационных целях.
+    </div>
+    <div class="muted" style="margin-top:24px;font-size:1.08em;">Информация актуальна на 2025 год</div>
+</section>
+{% endblock %} 

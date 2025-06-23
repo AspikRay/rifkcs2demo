@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Админ-панель | CS2 RIFK Demo{% endblock %}
+{% block content %}
+<section class="section" style="max-width:900px;">
+    <h2>Админ-панель</h2>
+    <h3>Пользователи</h3>
+    <div class="features-list" style="flex-wrap:wrap;gap:18px;">
+        {% for u in users %}
+        <div class="feature-card" style="min-width:180px;text-align:left;">
+            <b>{{ u.email }}</b><br>
+            Роль: {{ u.role }}
+        </div>
+        {% endfor %}
+    </div>
+    <h3 style="margin-top:40px;">Инвайт-коды</h3>
+    <form method="post" style="margin-bottom:18px;">
+        <button type="submit" class="btn">Сгенерировать новый инвайт-код</button>
+    </form>
+    {% if new_code %}
+    <div class="muted" style="margin-bottom:18px;">Новый инвайт-код: <b>{{ new_code }}</b></div>
+    {% endif %}
+    <div class="features-list" style="flex-wrap:wrap;gap:18px;">
+        {% for c in codes %}
+        <div class="feature-card" style="min-width:180px;text-align:left;">
+            <b>{{ c.code }}</b><br>
+            {% if c.used %}Использован{% else %}Свободен{% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %} 

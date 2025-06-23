@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Личный кабинет | CS2 RIFK Demo{% endblock %}
+{% block content %}
+<section class="dashboard-hero">
+    <div class="dashboard-title">Добро пожаловать, {{ user.email }}!</div>
+    <div class="dashboard-role-btn">
+        <span class="dashboard-role">Ваш тариф: <b>{{ user.role|capitalize }}</b></span>
+        <a href="/logout" class="btn btn-outline">Выйти</a>
+    </div>
+</section>
+<section class="dashboard-news">
+    <h2>Новости и обновления</h2>
+    <ul class="news-list">
+        <li><span class="news-date">2025-06-01</span> — Обновление защиты и интерфейса.</li>
+        <li><span class="news-date">2025-05-25</span> — Добавлены новые тарифы.</li>
+        <li><span class="news-date">2025-05-20</span> — Запуск проекта.</li>
+    </ul>
+</section>
+<section class="dashboard-contacts">
+    <h2>Контакты поддержки</h2>
+    <div class="contacts-list">
+        <div>Telegram: <a href="https://t.me/dyhyksxa1" target="_blank">@dyhyksxa1</a></div>
+        <div>Email: <a href="mailto:support@rifk.com">support@rifk.com</a></div>
+    </div>
+</section>
+{% endblock %} 

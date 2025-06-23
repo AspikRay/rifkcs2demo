@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{{ topic.title }} | Форум{% endblock %}
+{% block content %}
+<div class="forum-layout">
+    <div class="forum-main">
+        <div class="forum-category">
+            <div class="forum-title">{{ topic.title }}</div>
+            <div class="forum-meta">Автор: {{ topic.author.email }} | {{ topic.created_at.strftime('%d.%m.%Y %H:%M') }}</div>
+            <div class="forum-list">
+                {% for post in posts %}
+                <div class="forum-card">
+                    <div class="forum-info">
+                        <div class="forum-meta">{{ post.author.email }} | {{ post.created_at.strftime('%d.%m.%Y %H:%M') }}</div>
+                        <div class="forum-desc">{{ post.content|safe }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% if session.get('user_id') %}
+            <form method="post" class="auth-form" style="margin-top:32px;">
+                <label>Ваш ответ
+                    <textarea name="content" rows="4" required style="resize:vertical;min-height:80px;"></textarea>
+                </label>
+                <button type="submit" class="btn">Ответить</button>
+            </form>
+            {% else %}
+            <div class="muted" style="margin-top:24px;">Войдите, чтобы ответить</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

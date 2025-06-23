@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.title }} | Форум{% endblock %}
+{% block content %}
+<div class="forum-layout">
+    <div class="forum-main">
+        <div class="forum-category">
+            <div class="forum-title">{{ category.title }}</div>
+            <div class="forum-desc">{{ category.description }}</div>
+            <a href="/category/{{ category.id }}/new" class="btn" style="margin-bottom:18px;">Создать тему</a>
+            <div class="forum-list">
+                {% for topic in topics %}
+                <a class="forum-card" href="/topic/{{ topic.id }}">
+                    <div class="forum-info">
+                        <div class="forum-name">{{ topic.title }}</div>
+                        <div class="forum-meta">Автор: {{ topic.author.email }} | {{ topic.created_at.strftime('%d.%m.%Y %H:%M') }}</div>
+                    </div>
+                </a>
+                {% else %}
+                <div class="muted">Тем пока нет. Будьте первым!</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

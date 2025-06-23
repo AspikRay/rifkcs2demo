@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Заявка | CS2 RIFK Demo{% endblock %}
+{% block content %}
+<h2>Оставить заявку</h2>
+<form method="post" class="request-form">
+    <label>Email
+        <input type="email" name="email" required>
+    </label>
+    <button type="submit" class="btn">Отправить заявку</button>
+</form>
+{% endblock %} 

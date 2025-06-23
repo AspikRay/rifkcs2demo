@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Пользователи | Форум{% endblock %}
+{% block content %}
+<div class="forum-layout">
+    <div class="forum-main">
+        <div class="forum-category">
+            <div class="forum-title">Пользователи форума</div>
+            <div class="forum-list">
+                {% for u in users %}
+                <a class="forum-card" href="/user/{{ u.id }}">
+                    <div class="forum-info">
+                        <div class="forum-name">{{ u.email }}</div>
+                        <div class="forum-meta">Роль: {{ u.role }}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

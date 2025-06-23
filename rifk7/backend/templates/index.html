@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}CS2 RIFK Demo | Приватный софт для CS2{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-logo">CS2 RIFK Demo</div>
+    <div class="hero-slogan">Приватный софт для Counter-Strike 2. Безопасно. Современно. Приватно.</div>
+    <div class="hero-actions">
+        {% if not session.get('user_id') %}
+        <a href="/login" class="btn">Войти</a>
+        <a href="/register" class="btn btn-outline">Регистрация</a>
+        {% else %}
+        <a href="/dashboard" class="btn">В кабинет</a>
+        {% endif %}
+    </div>
+</section>
+<section class="features">
+    <h2>Преимущества</h2>
+    <div class="features-list">
+        {% for f in features %}
+        <div class="feature-card">{{ f }}</div>
+        {% endfor %}
+    </div>
+</section>
+<section class="tariffs">
+    <h2>Тарифы</h2>
+    <div class="tariff-list">
+        {% for t in tariffs %}
+        <div class="tariff">
+            <h3>{{ t.name }}</h3>
+            <p>{{ t.desc }}</p>
+            <div class="price">{{ t.price }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="news">
+    <h2>Новости и обновления</h2>
+    <ul class="news-list">
+        {% for n in news %}
+        <li><span class="news-date">{{ n.date }}</span> — {{ n.text }}</li>
+        {% endfor %}
+    </ul>
+</section>
+<section class="contacts-block">
+    <h2>Контакты</h2>
+    <div class="contacts-list">
+        <div>Telegram: <a href="https://t.me/rifk7" target="_blank">@rifk7</a></div>
+        <div>Email: <a href="mailto:support@rifk7.com">support@rifk7.com</a></div>
+    </div>
+</section>
+{% endblock %} 
